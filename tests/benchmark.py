@@ -8,7 +8,7 @@ import sys
 import timeit
 
 import simplejson
-import ujson
+import nujson as ujson
 import yajl
 
 

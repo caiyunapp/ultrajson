@@ -1,4 +1,4 @@
-# The UltraJSON Fork That Support Numpy Serialization
+# nujson: The UltraJSON Fork That Support Numpy Serialization
 
 [![Build Status](https://travis-ci.org/caiyunapp/ultrajson.svg?branch=numpy)](https://travis-ci.org/caiyunapp/ultrajson)
 
@@ -6,19 +6,19 @@ Inspired by [Pandas' ujson](https://github.com/pandas-dev/pandas/tree/master/pan
 
 ## How to install
 
-**Python 3.7 is required.**
+Python version: Python2.7, Python3.5+
 
 Using pip:
 
 ```sh
-pip install -e git+https://github.com/caiyunapp/ultrajson.git@numpy#egg=ujson
+pip install -e git+https://github.com/caiyunapp/ultrajson.git#egg=nujson
 ```
 
 Clone and install:
 
 ```sh
 # git clone the numpy branch
-git clone -b numpy https://github.com/caiyunapp/ultrajson
+git clone https://github.com/caiyunapp/ultrajson
 
 # Don't use `python setup.py install`
 # NumPy will install automatically
@@ -29,7 +29,7 @@ pip install -e .
 
 ```python
 >>> import numpy as np
->>> import ujson
+>>> import nujson as ujson
 >>> a = {"a": np.int64(100)}
 >>> ujson.dumps(a)
 '{"a":100}'
@@ -58,6 +58,6 @@ On Python3, some data types of NumPy is not serializable. Here is some reference
 One solution is type conversion like: `int(numpy.int64)` and `numpy.array.tolist()`.
 But it's not good for performance. After searching Internet, find a no longer maintained project [Komnomnomnom/ultrajson](https://github.com/Komnomnomnom/ultrajson) recommond to use [Pandas' ujson](https://github.com/pandas-dev/pandas/tree/master/pandas/_libs/src/ujson/python).
 
-We tried but found Pandas is to heavy for our projects. So we decide to build our own light weight fork. Currentltly, the esn's ujson master branch has some problems we need to solve, and the `NumPy` branch is based on the [the v1.35 ujson](https://github.com/esnme/ultrajson/releases/tag/v1.35).
+We tried but found Pandas is to heavy for our projects. So we decide to build our own light weight fork. Currentltly, the esn's ujson master branch has some problems we need to solve, and the `master` branch is based on the [the v1.35 ujson](https://github.com/esnme/ultrajson/releases/tag/v1.35).
 
 The main point is convert NumPy data type in C, with calling NumPy's header. [Commit 187bd15](https://github.com/caiyunapp/ultrajson/commit/187bd155b7acd303aa6f5571f5b858c0d244edd6) has the most changes we made to support NumPy, and [Commit afedc42](https://github.com/caiyunapp/ultrajson/commit/afedc42b2ce288064821981acd70592342da55fa) fix a build issue on macOS caused by Clang.

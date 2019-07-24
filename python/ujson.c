@@ -55,7 +55,7 @@ PyObject* JSONFileToObj(PyObject* self, PyObject *args, PyObject *kwargs);
 
 #define ENCODER_HELP_TEXT "Use ensure_ascii=false to output UTF-8. Pass in double_precision to alter the maximum digit precision of doubles. Set encode_html_chars=True to encode < > & as unicode escape sequences. Set escape_forward_slashes=False to prevent escaping / characters."
 
-static PyMethodDef ujsonMethods[] = {
+static PyMethodDef nujsonMethods[] = {
   {"encode", (PyCFunction) objToJSON, METH_VARARGS | METH_KEYWORDS, "Converts arbitrary object recursively into JSON. " ENCODER_HELP_TEXT},
   {"decode", (PyCFunction) JSONToObj, METH_VARARGS | METH_KEYWORDS, "Converts JSON as string to dict object structure. Use precise_float=True to use high precision float decoder."},
   {"dumps", (PyCFunction) objToJSON, METH_VARARGS | METH_KEYWORDS,  "Converts arbitrary object recursively into JSON. " ENCODER_HELP_TEXT},
@@ -69,24 +69,24 @@ static PyMethodDef ujsonMethods[] = {
 
 static struct PyModuleDef moduledef = {
   PyModuleDef_HEAD_INIT,
-  "ujson",
+  "nujson",
   0,              /* m_doc */
   -1,             /* m_size */
-  ujsonMethods,   /* m_methods */
+  nujsonMethods,   /* m_methods */
   NULL,           /* m_reload */
   NULL,           /* m_traverse */
   NULL,           /* m_clear */
   NULL            /* m_free */
 };
 
-#define PYMODINITFUNC       PyObject *PyInit_ujson(void)
+#define PYMODINITFUNC       PyObject *PyInit_nujson(void)
 #define PYMODULE_CREATE()   PyModule_Create(&moduledef)
 #define MODINITERROR        return NULL
 
 #else
 
-#define PYMODINITFUNC       PyMODINIT_FUNC initujson(void)
-#define PYMODULE_CREATE()   Py_InitModule("ujson", ujsonMethods)
+#define PYMODINITFUNC       PyMODINIT_FUNC initnujson(void)
+#define PYMODULE_CREATE()   Py_InitModule("nujson", nujsonMethods)
 #define MODINITERROR        return
 
 #endif
@@ -104,7 +104,7 @@ PYMODINITFUNC
     MODINITERROR;
   }
 
-  version_string = PyString_FromString (UJSON_VERSION);
+  version_string = PyString_FromString (NUJSON_VERSION);
   PyModule_AddObject (module, "__version__", version_string);
 
 #if PY_MAJOR_VERSION >= 3
