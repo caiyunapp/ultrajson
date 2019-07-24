@@ -1,6 +1,6 @@
 # nujson: The UltraJSON Fork That Support Numpy Serialization
 
-[![Build Status](https://travis-ci.org/caiyunapp/ultrajson.svg?branch=numpy)](https://travis-ci.org/caiyunapp/ultrajson)
+[![Build Status](https://travis-ci.org/caiyunapp/ultrajson.svg?branch=master)](https://travis-ci.org/caiyunapp/ultrajson)
 
 Inspired by [Pandas' ujson](https://github.com/pandas-dev/pandas/tree/master/pandas/_libs/src/ujson/python).
 
