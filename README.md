@@ -8,6 +8,14 @@ Inspired by [Pandas' ujson](https://github.com/pandas-dev/pandas/tree/master/pan
 
 **Python 3.7 is required.**
 
+Using pip:
+
+```sh
+pip install -e git+https://github.com/caiyunapp/ultrajson.git@numpy#egg=ujson
+```
+
+Clone and install:
+
 ```sh
 # git clone the numpy branch
 git clone -b numpy https://github.com/caiyunapp/ultrajson
