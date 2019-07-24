@@ -17,7 +17,7 @@ pip install -e git+https://github.com/caiyunapp/ultrajson.git#egg=nujson
 Clone and install:
 
 ```sh
-# git clone the numpy branch
+# git clone
 git clone https://github.com/caiyunapp/ultrajson
 
 # Don't use `python setup.py install`
