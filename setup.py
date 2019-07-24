@@ -52,7 +52,7 @@ def get_version():
     return m.group(1)
 
 
-f = open('README.rst')
+f = open('README.md')
 try:
     README = f.read()
 finally:
