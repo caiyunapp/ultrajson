@@ -2,17 +2,19 @@
 
 [![Build Status](https://travis-ci.org/caiyunapp/ultrajson.svg?branch=numpy)](https://travis-ci.org/caiyunapp/ultrajson)
 
-- Original author: [xtao (Xu Tao)](https://github.com/xtao)
-- Inspired by [Pandas' ujson](https://github.com/pandas-dev/pandas/tree/master/pandas/_libs/src/ujson/python)
+Inspired by [Pandas' ujson](https://github.com/pandas-dev/pandas/tree/master/pandas/_libs/src/ujson/python).
 
 ## How to install
 
 **Python 3.7 is required.**
 
 ```sh
+# git clone the numpy branch
 git clone -b numpy https://github.com/caiyunapp/ultrajson
-pip install -e .
+
 # Don't use `python setup.py install`
+# NumPy will install automatically
+pip install -e .
 ```
 
 ## Example
@@ -46,7 +48,8 @@ On Python3, some data types of NumPy is not serializable. Here is some reference
 - [Issue 24313: json fails to serialise numpy.int64 - Python tracker](https://bugs.python.org/issue24313)
 
 One solution is type conversion like: `int(numpy.int64)` and `numpy.array.tolist()`.
-But it's not good for performance.
-So we learned from [Pandas' ujson](https://github.com/pandas-dev/pandas/tree/master/pandas/_libs/src/ujson/python) and modified [the v1.35 ujson](https://github.com/esnme/ultrajson/releases/tag/v1.35).
+But it's not good for performance. After searching Internet, find a no longer maintained project [Komnomnomnom/ultrajson](https://github.com/Komnomnomnom/ultrajson) recommond to use [Pandas' ujson](https://github.com/pandas-dev/pandas/tree/master/pandas/_libs/src/ujson/python).
+
+We tried but fount Pandas is to heavy for our projects. So we decide to build our own light weight fork. Currentltly, the master branch has some problems we need to solve, and the `NumPy` branch is based on the [the v1.35 ujson](https://github.com/esnme/ultrajson/releases/tag/v1.35).
 
 The main point is convert NumPy data type in C, with calling NumPy's header. [Commit 187bd15](https://github.com/caiyunapp/ultrajson/commit/187bd155b7acd303aa6f5571f5b858c0d244edd6) has the most changes we made to support NumPy, and [Commit afedc42](https://github.com/caiyunapp/ultrajson/commit/afedc42b2ce288064821981acd70592342da55fa) fix a build issue on macOS caused by Clang.
