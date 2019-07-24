@@ -2,6 +2,10 @@ sudo: false
 language: python
 python:
   - "3.7"
+os:
+  - linux
+  - osx
+  - windows
 install:
   - pip install six blist unittest2 pytz
   - pip install -e .

@@ -92,7 +92,7 @@ struct PyDictIterState
 //#define PRINTMARK() fprintf(stderr, "%s: MARK(%d)\n", __FILE__, __LINE__)
 #define PRINTMARK()
 
-void initObjToJSON(void)
+void *initObjToJSON(void)
 {
   PyObject* mod_decimal = PyImport_ImportModule("decimal");
   if (mod_decimal)

@@ -5,12 +5,6 @@
 - Original author: [xtao (Xu Tao)](https://github.com/xtao)
 - Inspired by [Pandas' ujson](https://github.com/pandas-dev/pandas/tree/master/pandas/_libs/src/ujson/python)
 
-## Environment
-
-Test on Ubuntu 18.04 with Python3.7
-
-Known issue: macOS support.
-
 ## How to install
 
 ```sh
