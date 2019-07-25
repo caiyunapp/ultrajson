@@ -23,7 +23,7 @@ Python version: Python2.7, Python3.5+
 Using pip:
 
 ```sh
-pip install -e git+https://github.com/caiyunapp/ultrajson.git#egg=nujson
+pip install nujson
 ```
 
 Clone and install:
