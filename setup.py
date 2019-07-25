@@ -76,8 +76,14 @@ class CustomBuildExtCommand(build_ext):
 
 setup(name='nujson',
       version=get_version(),
-      description="Ultra fast JSON encoder and decoder for Python",
+      description="Ultra fast JSON encoder and decoder for Python with NumPy support",
       long_description=README,
+      long_description_content_type="text/markdown",
+      keywords='numpy ujson json python3',
+      project_urls={
+          #   'Documentation': '',
+          'Source': 'http://github.com/caiyunapp/ultrajson',
+      },
       cmdclass={'build_ext': CustomBuildExtCommand},
       install_requires=['numpy>=1.16.4'],
       ext_modules=[module1],

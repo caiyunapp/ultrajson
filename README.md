@@ -1,10 +1,21 @@
-# nujson: The UltraJSON Fork That Support Numpy Serialization
+<h1 align="center">
+nujson: The UltraJSON Fork That Support Numpy Serialization
+</h1>
+
+<div align="center">
+
+*Inspired by [Pandas' ujson](https://github.com/pandas-dev/pandas/tree/master/pandas/_libs/src/ujson/python)*
 
 [![Build Status](https://travis-ci.org/caiyunapp/ultrajson.svg?branch=master)](https://travis-ci.org/caiyunapp/ultrajson)
 
-Inspired by [Pandas' ujson](https://github.com/pandas-dev/pandas/tree/master/pandas/_libs/src/ujson/python).
 
-## How to install
+</div>
+
+- [How to install](#how-to-install)
+- [Example](#example)
+- [Why make such a package and what is modified](#why-make-such-a-package-and-what-is-modified)
+
+# How to install
 
 Python version: Python2.7, Python3.5+
 
@@ -25,7 +36,23 @@ git clone https://github.com/caiyunapp/ultrajson
 pip install -e .
 ```
 
-## Example
+
+If get error like this:
+
+```
+ERROR: Could not find a version that satisfies the requirement numpy>=1.16.4 (from nujson) (from versions: 1.9.3)
+ERROR: No matching distribution found for numpy>=1.16.4 (from nujson)
+```
+
+Try this:
+
+```sh
+pip uninstall numpy
+pip install numpy==1.16.4
+pip install nujson
+```
+
+# Example
 
 ```python
 >>> import numpy as np
@@ -47,7 +74,7 @@ pip install -e .
 '{"a":100,"b":10.9,"c":"12","d":[0,1,2,3,4,5,6,7,8,9],"e":[3.9,3.9,3.9,3.9]}'
 ```
 
-## Why make such a package and what is modified
+# Why make such a package and what is modified
 
 On Python3, some data types of NumPy is not serializable. Here is some references we searched:
 
