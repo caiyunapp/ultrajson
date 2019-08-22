@@ -106,6 +106,7 @@ void *initObjToJSON(void)
 
   PyDateTime_IMPORT;
   import_array();
+  return NUMPY_IMPORT_ARRAY_RETVAL;
 }
 
 #ifdef _LP64
