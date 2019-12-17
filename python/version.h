@@ -36,4 +36,4 @@ http://www.opensource.apple.com/source/tcl/tcl-14/tcl/license.terms
  * Copyright (c) 1994 Sun Microsystems, Inc.
 */
 
-#define NUJSON_VERSION "1.35"
+#define NUJSON_VERSION "1.35.2"
