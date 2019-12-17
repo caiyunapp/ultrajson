@@ -80,7 +80,7 @@ pip install nujson
 On Python3, some data types of NumPy is not serializable. Here is some references we searched:
 
 - [python - Why are some numpy datatypes JSON serializable and others not? - Stack Overflow](https://stackoverflow.com/questions/44459168/why-are-some-numpy-datatypes-json-serializable-and-others-not)
-- [Maximum recursion level reached in Python 3 · Issue #221 · esnme/ultrajson](https://github.com/esnme/ultrajson/issues/221)
+- [Maximum recursion level reached in Python 3 - Issue #221 - esnme/ultrajson](https://github.com/esnme/ultrajson/issues/221)
 - [Issue 24313: json fails to serialise numpy.int64 - Python tracker](https://bugs.python.org/issue24313)
 
 One solution is type conversion like: `int(numpy.int64)` and `numpy.array.tolist()`.
