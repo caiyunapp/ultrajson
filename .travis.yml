@@ -1,11 +1,12 @@
-dist: xenia
-sudo: false
 language: python
+cache: pip
 python:
   - "2.7"
   - "3.5"
   - "3.6"
   - "3.7"
+  - "3.8"
+  - "3.9-dev"
 
 install:
   - pip install six blist unittest2 pytz
