@@ -94,5 +94,6 @@ setup(name='nujson',
       license="BSD License",
       platforms=['any'],
       url="https://caiyunapp.com",
+      python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
       classifiers=CLASSIFIERS,
       )
