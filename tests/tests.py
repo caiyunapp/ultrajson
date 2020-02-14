@@ -696,7 +696,7 @@ class UltraJSONTests(unittest.TestCase):
 
         output = ujson.encode(ObjectTest())
         dec = ujson.decode(output)
-        self.assertEquals(dec, {})
+        self.assertEqual(dec, {})
 
     def test_toDict(self):
         d = {"key": 31337}
