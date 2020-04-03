@@ -136,6 +136,13 @@ static void *PyLongToUINT64(JSOBJ _obj, JSONTypeContext *tc, void *outValue, siz
   return NULL;
 }
 
+static void *NpyFloatToDOUBLE(JSOBJ _obj, JSONTypeContext *tc, void *outValue,
+                              size_t *_outLen) {
+    PyObject *obj = (PyObject *)_obj;
+    PyArray_CastScalarToCtype(obj, outValue, PyArray_DescrFromType(NPY_DOUBLE));
+    return NULL;
+}
+
 static void *PyFloatToDOUBLE(JSOBJ _obj, JSONTypeContext *tc, void *outValue, size_t *_outLen)
 {
   PyObject *obj = (PyObject *) _obj;
@@ -773,13 +780,19 @@ void Object_beginTypeContext (JSOBJ _obj, JSONTypeContext *tc, JSONObjectEncoder
   if (PyNumber_Check(obj))
   {
     PRINTMARK();
+    if (PyArray_IsScalar(obj, Float) || PyArray_IsScalar(obj, Double))
+    {
+      pc->PyTypeToJSON = NpyFloatToDOUBLE; tc->type = JT_DOUBLE;
+    }
+    else {
     #ifdef _LP64
     pc->PyTypeToJSON = PyIntToINT64; tc->type = JT_LONG;
     #else
     pc->PyTypeToJSON = PyIntToINT32; tc->type = JT_INT;
     #endif
-    return;
     }
+    return;
+  }
   else
   if (obj == Py_None)
   {

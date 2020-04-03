@@ -11,4 +11,6 @@ python:
 install:
   - pip install six blist unittest2 pytz
   - pip install -e .
-script: python tests/tests.py
+script:
+  - python tests/tests.py
+  - python tests/test_numpy_handling.py
